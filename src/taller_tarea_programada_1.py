@@ -69,20 +69,28 @@ def myMult(num1, num2):
         else:
             return num1 * num2
 
-#Inicia el proyecto
+
+# Initialize pygame
 pygame.init()
 
-background = load_image("Fondo.jpg")
-explosion_sound = load_sound("explosion.mp3")
+# Load background image
+fondo = load_image("Fondo.jpg")
 
-
-#ubicacion del archivo que se usa en el fondo
-script_dir = os.path.dirname(os.path.realpath(__file__))
-#fondo_path = os.path.join(script_dir, 'imagenes', 'Fondo.jpg')
-
-#fondo = pygame.image.load(fondo_path)
+# Set up screen
 screen = pygame.display.set_mode(size=(255, 340))
 pygame.display.set_caption('Calculadora')
+
+# Load music and sound effects
+musica_path = os.path.join(os.path.dirname(os.path.abspath(__file__)), "..", "assets", "sound", "Musica.mp3")
+pygame.mixer.music.load(musica_path)
+pygame.mixer.music.set_volume(0.3)
+pygame.mixer.music.play()
+
+Sound = load_sound("explosion.mp3")
+Sound.set_volume(0.9)
+
+
+
 
 # Declaramos los espacios donde se generan las interacciones.
 rectangle = pygame.Rect(10, 10, 230, 80)
@@ -125,17 +133,6 @@ my_text_display = pygame.font.SysFont(None, 100)
 #Declaramos el texto que se le muestra al usuario
 user_text_1 = ''
 
-#Ruta para encontrar los archivos de audio
-script_dir = os.path.dirname(os.path.realpath(__file__))
-#musica_path = os.path.join(script_dir,'musica' ,'Musica.mp3')
-#explosion_path = os.path.join(script_dir,'musica', 'explosion.mp3')
-
-#musica que utiliza el programa y sus efectos de sonido (la canción se llama: Creative Exercise Mario Paint)
-pygame.mixer.music.load(musica_path)
-pygame.mixer.music.set_volume(0.3)
-pygame.mixer.music.play()
-Sound = pygame.mixer.Sound(explosion_path)
-Sound.set_volume(0.90)
 
 num1 = 0
 num2 = 0
