@@ -119,7 +119,7 @@ user_text_1 = ''
 #Ruta para encontrar los archivos de audio
 script_dir = os.path.dirname(os.path.realpath(__file__))
 #musica_path = os.path.join(script_dir,'musica' ,'Musica.mp3')
-explosion_path = os.path.join(script_dir, '..', 'assets', 'sound', 'explosion.mp3')
+explosion_path = os.path.join(script_dir, '..', 'assets', 'audio', 'explosion.mp3')
 
 #musica que utiliza el programa y sus efectos de sonido (la canción se llama: Creative Exercise Mario Paint)
 '''pygame.mixer.music.load(musica_path)
