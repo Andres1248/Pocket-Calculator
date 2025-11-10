@@ -3,11 +3,6 @@ import pygame
 import cmath
 import math
 import os
-from asset_loader import load_image, load_sound
-
-
-
-
 
 # Función para la exponenciación.
 def myExp(num1, num2):
@@ -69,29 +64,16 @@ def myMult(num1, num2):
         else:
             return num1 * num2
 
-
-# Initialize pygame
+#Inicia el proyecto
 pygame.init()
 
+#ubicacion del archivo que se usa en el fondo
+script_dir = os.path.dirname(os.path.realpath(__file__))
+fondo_path = os.path.join(script_dir, 'imagenes', 'Fondo.jpg')
 
-# Set up screen
+fondo = pygame.image.load(fondo_path)
 screen = pygame.display.set_mode(size=(255, 340))
 pygame.display.set_caption('Calculadora')
-
-# Load images
-fondo = load_image("Fondo.jpg")
-
-# Load sounds
-pygame.mixer.music.load(asset_path("sound", "Musica.mp3"))  # for background music
-Sound = load_sound("explosion.mp3")  # for sound effect
-
-
-
-
-Sound.set_volume(0.9)
-
-
-
 
 # Declaramos los espacios donde se generan las interacciones.
 rectangle = pygame.Rect(10, 10, 230, 80)
@@ -134,6 +116,17 @@ my_text_display = pygame.font.SysFont(None, 100)
 #Declaramos el texto que se le muestra al usuario
 user_text_1 = ''
 
+#Ruta para encontrar los archivos de audio
+script_dir = os.path.dirname(os.path.realpath(__file__))
+musica_path = os.path.join(script_dir,'musica' ,'Musica.mp3')
+explosion_path = os.path.join(script_dir,'musica', 'explosion.mp3')
+
+#musica que utiliza el programa y sus efectos de sonido (la canción se llama: Creative Exercise Mario Paint)
+pygame.mixer.music.load(musica_path)
+pygame.mixer.music.set_volume(0.3)
+pygame.mixer.music.play()
+Sound = pygame.mixer.Sound(explosion_path)
+Sound.set_volume(0.90)
 
 num1 = 0
 num2 = 0
