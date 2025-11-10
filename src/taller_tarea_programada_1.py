@@ -73,20 +73,21 @@ def myMult(num1, num2):
 # Initialize pygame
 pygame.init()
 
-# Load background image
-fondo = load_image("Fondo.jpg")
 
 # Set up screen
 screen = pygame.display.set_mode(size=(255, 340))
 pygame.display.set_caption('Calculadora')
 
-# Load music and sound effects
-musica_path = os.path.join(os.path.dirname(os.path.abspath(__file__)), "..", "assets", "sound", "Musica.mp3")
-pygame.mixer.music.load(musica_path)
-pygame.mixer.music.set_volume(0.3)
-pygame.mixer.music.play()
+# Load images
+fondo = load_image("Fondo.jpg")
 
-Sound = load_sound("explosion.mp3")
+# Load sounds
+pygame.mixer.music.load(asset_path("sound", "Musica.mp3"))  # for background music
+Sound = load_sound("explosion.mp3")  # for sound effect
+
+
+
+
 Sound.set_volume(0.9)
 
 
